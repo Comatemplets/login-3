@@ -1,0 +1,236 @@
+:root {
+  --main-color: #3eabe8;
+  --main-color-sec: #8870e6;
+  --transition-color: #7453f5;
+  --main-transition: 0.5s;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+/* checkbox button start*/
+.checkbox-buttom {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+.checkbox-buttom input {
+  display: none;
+}
+.checkbox-buttom label {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.checkbox-buttom label::before {
+  font-family: var(--fa-style-family-classic);
+  content: "\f00c";
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  background-color: var(--main-color);
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--main-transition);
+  border-radius: 3px;
+}
+.checkbox-buttom input:checked + label::before {
+  opacity: 1;
+  transform: scale(1);
+}
+/* checkbox button end */
+/* start loader  */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: 0.75s;
+  z-index: 10000;
+}
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader::before {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 5px solid #eee;
+  border-top-color: var(--main-color);
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+/* End loader  */
+/* formats login page and register page  */
+/* Content-box start */
+body {
+  position: relative;
+  font-family: "Comfortaa", cursive;
+  overflow: hidden;
+  margin: 0;
+  justify-content: center;
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  padding: 20px;
+}
+.button-log-reg {
+  transform: rotate(-90deg);
+}
+.button-log-reg a {
+  color: gray;
+  margin-right: 10px;
+  padding: 10px;
+  border: 2px solid gray;
+  transition: 0.2s;
+}
+.button-log-reg a:hover,
+.button-log-reg a.active {
+  color: white;
+  border-color: var(--main-color);
+  background-color: var(--main-color);
+}
+form.form-log-reg {
+  width: 500px;
+  height: 600px;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 0 35px rgb(0 0 0 / 10%);
+  z-index: 2;
+  overflow: hidden;
+}
+form.form-log-reg .shap {
+  background-image: url(../img/shap3.png);
+  background-size: cover;
+  width: 124%;
+  height: 268px;
+  z-index: -1;
+  top: -17%;
+  left: -17%;
+  opacity: 30%;
+  transform: rotate(-22deg);
+}
+form.form-log-reg h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: var(--main-color);
+  margin: 15px 0;
+}
+form.form-log-reg h2 {
+  font-size: 22px;
+  text-transform: capitalize;
+}
+form.form-log-reg .box-log-reg {
+  margin-top: 30px;
+}
+form.form-log-reg .box-log-reg input {
+  padding: 15px;
+  border: none;
+  border: 2px solid #80808063;
+  margin-bottom: 15px;
+  outline: none;
+}
+form.form-log-reg .box-log-reg input:focus::placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
+}
+form.form-log-reg .remember-forget {
+  margin-bottom: 15px;
+}
+form.form-log-reg .remember-forget p {
+  margin: 0;
+  color: gray;
+  font-size: 14px;
+  margin-right: 5px;
+}
+form.form-log-reg .remember-forget a {
+  color: black;
+  font-size: 14px;
+}
+form.form-log-reg .remember-forget a:hover {
+  color: var(--main-color);
+}
+form.form-log-reg input[type="submit"] {
+  padding: 15px;
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  transition: var(--main-transition);
+}
+form.form-log-reg input[type="submit"]:hover {
+  background-color: #1593da;
+}
+form.form-log-reg ul.social-list {
+  font-size: 10px;
+  padding: 0;
+  margin: 10px auto;
+}
+form.form-log-reg ul.social-list li {
+  margin-right: 10px;
+}
+form ul.social-list i {
+  margin-right: 5px;
+}
+form.form-log-reg ul.social-list a {
+  color: gray;
+  text-transform: capitalize;
+  transition: var(--main-transition);
+}
+form.form-log-reg ul.social-list a:hover {
+  color: var(--main-color);
+}
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  form.form-log-reg {
+    width: 330px;
+    height: 500px;
+    padding: 20px;
+  }
+  body .button-log-reg {
+    transform: rotate(0);
+    margin: 15px 0;
+  }
+  form.form-log-reg input[type="submit"] {
+    margin: 15px 0;
+  }
+}
+/* content-box end  */
+/* start animation  */
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* End animation  */
